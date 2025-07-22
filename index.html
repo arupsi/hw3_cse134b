@@ -6,8 +6,7 @@
     <meta name="description" content="The personal portfolio of Aahil Rupsi, showcasing skills and featured projects.">
     <meta name="keywords" content="portfolio, web developer, software engineer, Aahil Rupsi, projects">
     <title>Aahil Rupsi - Personal Portfolio</title>
-    <!-- Placeholder for future CSS stylesheet -->
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="style.css">
      <style>
         /* Empty since NO CSS ALLOWED
         */
@@ -21,12 +20,17 @@
             <h1>Hi I'm Aahil Rupsi</h1>
             <p>A Passionate Web Developer</p>
         </hgroup>
-        <nav>
+        <button class="hamburger-menu" aria-label="Toggle menu" aria-expanded="false">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+        </button>
+        <nav class="main-nav">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="contact">Contact</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
         <search>
@@ -38,18 +42,19 @@
         </search>
     </header>
 
-    <main>
-        <br>
-        <section id="hero">
-            <h2>Welcome to My <span>Digital</span> Space</h2>
-            <aside><p>I am a <em>passionate web developer</em> focused on creating <b>clean</b>, <b>efficient</b>, and <b>user-friendly</b> applications. Explore my work and get to know my process.</p></aside>
-            <figure>
+    <main class="home-main">
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <h2>Welcome to My <span>Digital</span> Space</h2>
+                <aside><p>I am a <em>passionate web developer</em> focused on creating <b>clean</b>, <b>efficient</b>, and <b>user-friendly</b> applications. Explore my work and get to know my process.</p></aside>
+            </div>
+            <figure class="hero-figure">
                 <picture>
-                    <source media="(min-width: 650px)" srcset="placeholder-large.jpg">
-                    <source media="(min-width: 465px)" srcset="placeholder-medium.jpg">
-                    <img src="placeholder.jpg" alt="A professional headshot of Aahil Rupsi" width="200" height="200">
+                    <source srcset="https://picsum.photos/id/237/800/600.webp" type="image/webp">
+                    <source srcset="https://picsum.photos/id/237/800/600.jpg" type="image/jpeg">
+                    <img src="https://picsum.photos/id/237/400/300.jpg" alt="A professional headshot of Aahil Rupsi" width="200" height="200">
                 </picture>
-                <figcaption>A placeholder image for a professional headshot.</figcaption>
+                <figcaption>A placeholder image for a professional headshot of me (which i dont have yet).</figcaption>
             </figure>
         </section>
 
@@ -82,57 +87,29 @@ function greet() {
 
         <section id="portfolio">
             <h2>Featured Projects</h2>
-            
-            <div class="project-wrapper">
-                <article>
-                    <h3>Project One: [Project Title]</h3>
-                    <figure>
-                        <img src="project1.jpg" alt="Screenshot of [Project Title]">
-                        <figcaption>A brief caption for the project image.</figcaption>
+            <div class="projects-container">
+                <article class="project-card">
+                    <figure class="project-image">
+                        <img src="https://picsum.photos/seed/project1/400/300.jpg" alt="Screenshot of Project One">
                     </figure>
-                    <p>[Brief Description of Project Impact]. This project solved [a specific problem] by implementing [a key feature or technology]. It demonstrates my ability to work with [relevant skills].</p>
-                    <video width="320" height="240" controls>
-                        <source src="movie.mp4" type="video/mp4">
-                        <source src="movie.ogg" type="video/ogg">
-                        Your browser does not support the video tag.
-                    </video>
-                    <br>
-                    <audio controls>
-                        <source src="horse.ogg" type="audio/ogg">
-                        <source src="horse.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                    <br>
-                    <button type="button">View Project Details</button>
-                </article>
-            </div>
-
-            <div class="project-wrapper">
-                <article>
-                    <h3>Project Two: [Another Project Title]</h3>
-                    <figure>
-                        <img src="project2.jpg" alt="Screenshot of [Another Project Title]">
-                        <figcaption>Another brief caption for the project image.</figcaption>
-                    </figure>
-                    <p>[Brief Description of Project Impact]. In this project, I focused on [a specific challenge or goal]. The outcome was [a measurable result], showcasing my skills in [relevant technologies].</p>
-                    <button type="button">View Project Details</button>
-                </article>
-            </div>
-
-            <template id="project-template">
-                <div class="project-wrapper">
-                    <article>
-                        <h3></h3>
-                        <figure>
-                            <img src="" alt="">
-                            <figcaption></figcaption>
-                        </figure>
-                        <p></p>
+                    <div class="project-info">
+                        <h3>Project One: [Project Title]</h3>
+                        <p>[Brief Description of Project Impact]. This project solved [a specific problem] by implementing [a key feature or technology].</p>
                         <button type="button">View Project Details</button>
-                    </article>
-                </div>
-            </template>
+                    </div>
+                </article>
 
+                <article class="project-card">
+                    <figure class="project-image">
+                        <img src="https://picsum.photos/seed/project2/400/300.jpg" alt="Screenshot of Project Two">
+                    </figure>
+                    <div class="project-info">
+                        <h3>Project Two: [Another Project Title]</h3>
+                        <p>[Brief Description of Project Impact]. In this project, I focused on [a specific challenge or goal].</p>
+                        <button type="button">View Project Details</button>
+                    </div>
+                </article>
+            </div>
         </section>
     </main>
 
@@ -176,6 +153,15 @@ function greet() {
 
     closeDialogButton.addEventListener('click', () => {
         dialog.close();
+    });
+
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const mainNav = document.querySelector('.main-nav');
+
+    hamburgerMenu.addEventListener('click', () => {
+        mainNav.classList.toggle('is-active');
+        const isExpanded = mainNav.classList.contains('is-active');
+        hamburgerMenu.setAttribute('aria-expanded', isExpanded);
     });
 </script>
 

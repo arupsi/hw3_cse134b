@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Page not found. Please navigate back to the homepage of Aahil Rupsi's portfolio.">
     <title>Aahil Rupsi - 404 Not Found</title>
-    <!-- Placeholder for future CSS stylesheet -->
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <h1>Aahil Rupsi</h1>
-        <nav>
+        <button class="hamburger-menu" aria-label="Toggle menu" aria-expanded="false">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+        </button>
+        <nav class="main-nav">
             <ul>
                 <li><a href="/index.html">Home</a></li>
                 <li><a href="/about.html">About</a></li>
@@ -32,7 +36,11 @@
         <section id="error-message">
             <h1>404 - Page Not Found</h1>
             <figure>
-                <img src="404-placeholder.jpg" alt="A simple, abstract graphic indicating a lost connection or error." style="max-width: 300px;">
+                <picture>
+                    <source srcset="https://picsum.photos/seed/404/800/600.webp" type="image/webp">
+                    <source srcset="https://picsum.photos/seed/404/800/600.jpg" type="image/jpeg">
+                    <img src="https://picsum.photos/seed/404/400/300.jpg" alt="A simple, abstract graphic indicating a lost connection or error." style="max-width: 300px;">
+                </picture>
                 <figcaption>Oops! It seems you've taken a wrong turn.</figcaption>
             </figure>
             <p>We're sorry, but the page you were looking for cannot be found. It might have been removed, had its name changed, or is temporarily unavailable.</p>
@@ -53,6 +61,16 @@
         <small>&copy; <time datetime="2025">2025</time> Aahil Rupsi. All Rights Reserved.</small>
     </footer>
 
+    <script>
+        const hamburgerMenu = document.querySelector('.hamburger-menu');
+        const mainNav = document.querySelector('.main-nav');
+
+        hamburgerMenu.addEventListener('click', () => {
+            mainNav.classList.toggle('is-active');
+            const isExpanded = mainNav.classList.contains('is-active');
+            hamburgerMenu.setAttribute('aria-expanded', isExpanded);
+        });
+    </script>
 
 </body>
 
