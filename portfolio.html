@@ -42,10 +42,19 @@
 
         <hr>
 
-        <section id="project-gallery">
+        <section id="projects-section">
             <h2>Projects</h2>
+            <div id="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="react">React.js</button>
+                <button class="filter-btn" data-filter="node">Node.js</button>
+                <button class="filter-btn" data-filter="figma">Figma</button>
+                <button class="filter-btn" data-filter="html-css">HTML/CSS</button>
+                <button class="filter-btn" data-filter="d3">D3.js</button>
+                <button class="filter-btn" data-filter="python">Python</button>
+            </div>
             <div id="project-gallery">
-                <article class="project-card">
+                <article class="project-card" data-tech="react node">
                     <figure>
                         <picture>
                             <source srcset="https://picsum.photos/seed/alpha/400/300.webp" type="image/webp">
@@ -69,7 +78,7 @@
                     </div>
                 </article>
 
-                <article class="project-card">
+                <article class="project-card" data-tech="figma html-css">
                     <figure>
                         <picture>
                             <source srcset="https://picsum.photos/seed/beta/400/300.webp" type="image/webp">
@@ -88,7 +97,7 @@
                     </div>
                 </article>
 
-                <article class="project-card">
+                <article class="project-card" data-tech="d3">
                     <figure>
                         <picture>
                             <source srcset="https://picsum.photos/seed/gamma/400/300.webp" type="image/webp">
@@ -107,12 +116,12 @@
                     </div>
                 </article>
 
-                <article class="project-card">
+                <article class="project-card" data-tech="python">
                     <figure>
                         <picture>
-                            <source srcset="https://picsum.photos/seed/gamma/400/300.webp" type="image/webp">
-                            <source srcset="https://picsum.photos/seed/gamma/400/300.jpg" type="image/jpeg">
-                            <img src="https://picsum.photos/seed/gamma/200/150.jpg" alt="Screenshot of Project Gamma">
+                            <source srcset="https://picsum.photos/seed/delta/400/300.webp" type="image/webp">
+                            <source srcset="https://picsum.photos/seed/delta/400/300.jpg" type="image/jpeg">
+                            <img src="https://picsum.photos/seed/delta/200/150.jpg" alt="Screenshot of Project Delta">
                         </picture>
                     </figure>
                     <h3><a href="project-detail-4.html">Project Delta</a></h3>
@@ -123,6 +132,63 @@
                     <div class="status">
                         <label for="project-delta-progress">On Hold:</label>
                         <progress id="project-delta-progress" max="100" value="90">90%</progress>
+                    </div>
+                </article>
+
+                <article class="project-card" data-tech="react html-css">
+                    <figure>
+                        <picture>
+                            <source srcset="https://picsum.photos/seed/epsilon/400/300.webp" type="image/webp">
+                            <source srcset="https://picsum.photos/seed/epsilon/400/300.jpg" type="image/jpeg">
+                            <img src="https://picsum.photos/seed/epsilon/200/150.jpg" alt="Screenshot of Project Epsilon">
+                        </picture>
+                    </figure>
+                    <h3><a href="project-detail-5.html">Project Epsilon</a></h3>
+                    <p>A responsive e-commerce frontend built with modern React patterns and CSS Grid.</p>
+                    <div class="technologies">
+                        <strong>Technologies:</strong> <code>React.js</code>, <code>HTML/CSS</code>
+                    </div>
+                    <div class="status">
+                        <label for="project-epsilon-progress">Complete:</label>
+                        <progress id="project-epsilon-progress" max="100" value="100">100%</progress>
+                    </div>
+                </article>
+
+                <article class="project-card" data-tech="node python">
+                    <figure>
+                        <picture>
+                            <source srcset="https://picsum.photos/seed/zeta/400/300.webp" type="image/webp">
+                            <source srcset="https://picsum.photos/seed/zeta/400/300.jpg" type="image/jpeg">
+                            <img src="https://picsum.photos/seed/zeta/200/150.jpg" alt="Screenshot of Project Zeta">
+                        </picture>
+                    </figure>
+                    <h3><a href="project-detail-6.html">Project Zeta</a></h3>
+                    <p>A microservices API backend with Node.js gateway and Python data processing services.</p>
+                    <div class="technologies">
+                        <strong>Technologies:</strong> <code>Node.js</code>, <code>Python</code>
+                    </div>
+                    <div class="status">
+                        <label for="project-zeta-progress">In Progress:</label>
+                        <progress id="project-zeta-progress" max="100" value="65">65%</progress>
+                    </div>
+                </article>
+
+                <article class="project-card" data-tech="d3 html-css">
+                    <figure>
+                        <picture>
+                            <source srcset="https://picsum.photos/seed/eta/400/300.webp" type="image/webp">
+                            <source srcset="https://picsum.photos/seed/eta/400/300.jpg" type="image/jpeg">
+                            <img src="https://picsum.photos/seed/eta/200/150.jpg" alt="Screenshot of Project Eta">
+                        </picture>
+                    </figure>
+                    <h3><a href="project-detail-7.html">Project Eta</a></h3>
+                    <p>An interactive dashboard for real-time data visualization using D3.js and custom CSS animations.</p>
+                    <div class="technologies">
+                        <strong>Technologies:</strong> <code>D3.js</code>, <code>HTML/CSS</code>
+                    </div>
+                    <div class="status">
+                        <label for="project-eta-progress">Complete:</label>
+                        <progress id="project-eta-progress" max="100" value="100">100%</progress>
                     </div>
                 </article>
             </div>
@@ -136,16 +202,7 @@
         <small>&copy; <time datetime="2025">2025</time> Aahil Rupsi. All Rights Reserved.</small>
     </footer>
 
-    <script>
-        const hamburgerMenu = document.querySelector('.hamburger-menu');
-        const mainNav = document.querySelector('.main-nav');
-
-        hamburgerMenu.addEventListener('click', () => {
-            mainNav.classList.toggle('is-active');
-            const isExpanded = mainNav.classList.contains('is-active');
-            hamburgerMenu.setAttribute('aria-expanded', isExpanded);
-        });
-    </script>
+    <script src="script.js"></script>
 
 </body>
 </html>
