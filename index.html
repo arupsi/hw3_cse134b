@@ -94,8 +94,10 @@ function greet() {
                     </figure>
                     <div class="project-info">
                         <h3>Project One: [Project Title]</h3>
-                        <p>[Brief Description of Project Impact]. This project solved [a specific problem] by implementing [a key feature or technology].</p>
-                        <button type="button">View Project Details</button>
+                        <div class="project-description">
+                            <p>[Brief Description of Project Impact]. This project solved [a specific problem] by implementing [a key feature or technology].</p>
+                        </div>
+                        <button type="button" class="details-toggle">View Project Details</button>
                     </div>
                 </article>
 
@@ -105,8 +107,10 @@ function greet() {
                     </figure>
                     <div class="project-info">
                         <h3>Project Two: [Another Project Title]</h3>
-                        <p>[Brief Description of Project Impact]. In this project, I focused on [a specific challenge or goal].</p>
-                        <button type="button">View Project Details</button>
+                        <div class="project-description">
+                            <p>[Brief Description of Project Impact]. In this project, I focused on [a specific challenge or goal].</p>
+                        </div>
+                        <button type="button" class="details-toggle">View Project Details</button>
                     </div>
                 </article>
             </div>
@@ -162,6 +166,23 @@ function greet() {
         mainNav.classList.toggle('is-active');
         const isExpanded = mainNav.classList.contains('is-active');
         hamburgerMenu.setAttribute('aria-expanded', isExpanded);
+    });
+
+    const detailsToggleButtons = document.querySelectorAll('.details-toggle');
+    detailsToggleButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const projectCard = button.closest('.project-card');
+            const description = projectCard.querySelector('.project-description');
+            const isVisible = description.classList.contains('visible');
+            
+            if (isVisible) {
+                description.classList.remove('visible');
+                button.textContent = 'View Project Details';
+            } else {
+                description.classList.add('visible');
+                button.textContent = 'Hide Project Details';
+            }
+        });
     });
 </script>
 

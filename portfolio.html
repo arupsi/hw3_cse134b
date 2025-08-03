@@ -44,94 +44,88 @@
 
         <section id="project-gallery">
             <h2>Projects</h2>
-            <table>
-                <caption>A summary of my recent work.</caption>
-                <colgroup>
-                    <col span="1" style="width: 20%;">
-                    <col span="1" style="width: 20%;">
-                    <col span="1" style="width: 40%;">
-                    <col span="1" style="width: 10%;">
-                    <col span="1" style="width: 10%;">
-                </colgroup>
-                <thead>
-                    <tr>
-                        <th>Project Name</th>
-                        <th>Image</th>
-                        <th>Description</th>
-                        <th>Technologies</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td data-label="Project Name"><a href="project-detail-1.html">Project Alpha <sup>v2.0</sup></a></td>
-                        <td data-label="Image">
-                            <figure>
-                                <picture>
-                                    <source srcset="https://picsum.photos/seed/alpha/400/300.webp" type="image/webp">
-                                    <source srcset="https://picsum.photos/seed/alpha/400/300.jpg" type="image/jpeg">
-                                    <img src="https://picsum.photos/seed/alpha/200/150.jpg" alt="Screenshot of Project Alpha">
-                                </picture>
-                            </figure>
-                        </td>
-                        <td data-label="Description">
-                            A full-stack web application designed to streamline inventory management for small businesses. <br>
-                            <video controls width="250">
-                                <source src="/videos/project-alpha-demo.webm" type="video/webm">
-                                <source src="/videos/project-alpha-demo.mp4" type="video/mp4">
-                                Sorry, your browser doesn't support embedded videos.
-                            </video>
-                        </td>
-                        <td data-label="Technologies"><code>React.js</code>, <code>Node.js</code></td>
-                        <td data-label="Status"><label for="project-alpha-progress">Complete:</label> <progress id="project-alpha-progress" max="100" value="100">100%</progress></td>
-                    </tr>
-                    <tr>
-                        <td data-label="Project Name"><a href="project-detail-2.html">Project Beta</a></td>
-                        <td data-label="Image">
-                            <figure>
-                                <picture>
-                                    <source srcset="https://picsum.photos/seed/beta/400/300.webp" type="image/webp">
-                                    <source srcset="https://picsum.photos/seed/beta/400/300.jpg" type="image/jpeg">
-                                    <img src="https://picsum.photos/seed/beta/200/150.jpg" alt="Screenshot of Project Beta">
-                                </picture>
-                            </figure>
-                        </td>
-                        <td data-label="Description">A conceptual mobile application for local community engagement, focusing on UI/UX.</td>
-                        <td data-label="Technologies"><code>Figma</code>, <code>HTML/CSS</code></td>
-                        <td data-label="Status"><label for="project-beta-progress">In Progress:</label> <progress id="project-beta-progress" max="100" value="75">75%</progress></td>
-                    </tr>
-                    <tr>
-                        <td data-label="Project Name"><a href="project-detail-3.html">Project Gamma</a></td>
-                        <td data-label="Image">
-                            <figure>
-                                <picture>
-                                    <source srcset="https://picsum.photos/seed/gamma/400/300.webp" type="image/webp">
-                                    <source srcset="https://picsum.photos/seed/gamma/400/300.jpg" type="image/jpeg">
-                                    <img src="https://picsum.photos/seed/gamma/200/150.jpg" alt="Screenshot of Project Gamma">
-                                </picture>
-                            </figure>
-                        </td>
-                        <td data-label="Description">A data visualization tool for processing and displaying large datasets interactively.</td>
-                        <td data-label="Technologies"><code>D3.js</code></td>
-                        <td data-label="Status"><label for="project-gamma-progress">Complete:</label> <progress id="project-gamma-progress" max="100" value="100">100%</progress></td>
-                    </tr>
-                    <tr>
-                        <td data-label="Project Name"><a href="project-detail-4.html">Project Delta</a></td>
-                        <td data-label="Image">
-                           <figure>
-                                <picture>
-                                    <source srcset="https://picsum.photos/seed/gamma/400/300.webp" type="image/webp">
-                                    <source srcset="https://picsum.photos/seed/gamma/400/300.jpg" type="image/jpeg">
-                                    <img src="https://picsum.photos/seed/gamma/200/150.jpg" alt="Screenshot of Project Gamma">
-                                </picture>
-                            </figure>
-                        </td>
-                        <td data-label="Description">An open-source command-line tool for automating code linting and formatting.</td>
-                        <td data-label="Technologies"><code>Python</code></td>
-                        <td data-label="Status"><label for="project-delta-progress">On Hold:</label> <progress id="project-delta-progress" max="100" value="90">90%</progress></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div id="project-gallery">
+                <article class="project-card">
+                    <figure>
+                        <picture>
+                            <source srcset="https://picsum.photos/seed/alpha/400/300.webp" type="image/webp">
+                            <source srcset="https://picsum.photos/seed/alpha/400/300.jpg" type="image/jpeg">
+                            <img src="https://picsum.photos/seed/alpha/200/150.jpg" alt="Screenshot of Project Alpha">
+                        </picture>
+                    </figure>
+                    <h3><a href="project-detail-1.html">Project Alpha <sup>v2.0</sup></a></h3>
+                    <p>A full-stack web application designed to streamline inventory management for small businesses.</p>
+                    <video controls width="250">
+                        <source src="/videos/project-alpha-demo.webm" type="video/webm">
+                        <source src="/videos/project-alpha-demo.mp4" type="video/mp4">
+                        Sorry, your browser doesn't support embedded videos.
+                    </video>
+                    <div class="technologies">
+                        <strong>Technologies:</strong> <code>React.js</code>, <code>Node.js</code>
+                    </div>
+                    <div class="status">
+                        <label for="project-alpha-progress">Complete:</label>
+                        <progress id="project-alpha-progress" max="100" value="100">100%</progress>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <figure>
+                        <picture>
+                            <source srcset="https://picsum.photos/seed/beta/400/300.webp" type="image/webp">
+                            <source srcset="https://picsum.photos/seed/beta/400/300.jpg" type="image/jpeg">
+                            <img src="https://picsum.photos/seed/beta/200/150.jpg" alt="Screenshot of Project Beta">
+                        </picture>
+                    </figure>
+                    <h3><a href="project-detail-2.html">Project Beta</a></h3>
+                    <p>A conceptual mobile application for local community engagement, focusing on UI/UX.</p>
+                    <div class="technologies">
+                        <strong>Technologies:</strong> <code>Figma</code>, <code>HTML/CSS</code>
+                    </div>
+                    <div class="status">
+                        <label for="project-beta-progress">In Progress:</label>
+                        <progress id="project-beta-progress" max="100" value="75">75%</progress>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <figure>
+                        <picture>
+                            <source srcset="https://picsum.photos/seed/gamma/400/300.webp" type="image/webp">
+                            <source srcset="https://picsum.photos/seed/gamma/400/300.jpg" type="image/jpeg">
+                            <img src="https://picsum.photos/seed/gamma/200/150.jpg" alt="Screenshot of Project Gamma">
+                        </picture>
+                    </figure>
+                    <h3><a href="project-detail-3.html">Project Gamma</a></h3>
+                    <p>A data visualization tool for processing and displaying large datasets interactively.</p>
+                    <div class="technologies">
+                        <strong>Technologies:</strong> <code>D3.js</code>
+                    </div>
+                    <div class="status">
+                        <label for="project-gamma-progress">Complete:</label>
+                        <progress id="project-gamma-progress" max="100" value="100">100%</progress>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <figure>
+                        <picture>
+                            <source srcset="https://picsum.photos/seed/gamma/400/300.webp" type="image/webp">
+                            <source srcset="https://picsum.photos/seed/gamma/400/300.jpg" type="image/jpeg">
+                            <img src="https://picsum.photos/seed/gamma/200/150.jpg" alt="Screenshot of Project Gamma">
+                        </picture>
+                    </figure>
+                    <h3><a href="project-detail-4.html">Project Delta</a></h3>
+                    <p>An open-source command-line tool for automating code linting and formatting.</p>
+                    <div class="technologies">
+                        <strong>Technologies:</strong> <code>Python</code>
+                    </div>
+                    <div class="status">
+                        <label for="project-delta-progress">On Hold:</label>
+                        <progress id="project-delta-progress" max="100" value="90">90%</progress>
+                    </div>
+                </article>
+            </div>
         </section>
     </main>
 

@@ -182,48 +182,136 @@ footer a {
     max-width: 300px;
 }
 
+/* Featured Projects on Index Page */
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-unit);
+    margin-top: var(--spacing-unit);
+}
+
+.projects-container .project-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: var(--spacing-unit);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projects-container .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.projects-container .project-image {
+    margin: 0 0 var(--spacing-unit) 0;
+}
+
+.projects-container .project-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 4px;
+}
+
+.projects-container .project-info h3 {
+    margin: 0 0 calc(var(--spacing-unit) * 0.5) 0;
+    font-size: 1.25rem;
+}
+
+.projects-container .project-info p {
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: var(--spacing-unit);
+}
+
+.project-description {
+    display: none;
+    margin-top: calc(var(--spacing-unit) * 0.5);
+}
+
+.project-description.visible {
+    display: block;
+}
+
+.projects-container button {
+    background: var(--primary-color, var(--fallback-primary-color));
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.projects-container button:hover {
+    background: color-mix(in srgb, var(--primary-color, var(--fallback-primary-color)) 85%, #000);
+    transform: translateY(-2px);
+}
+
 /* Portfolio Page */
-#project-gallery table {
-  width: 100%;
-  border-collapse: collapse;
+#project-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-unit);
   margin-top: var(--spacing-unit);
 }
 
-#project-gallery td.image-col {
-    width: 150px;
-}
-
-#project-gallery td.image-col img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 4px;
-}
-
-#project-gallery td figure {
-    margin: 0;
-}
-
-#project-gallery td img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    object-position: top;
-    border-radius: 4px;
-}
-
-#project-gallery th, #project-gallery td {
+.project-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   padding: var(--spacing-unit);
-  border: 1px solid #ddd;
-  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#project-gallery tbody tr {
-  transition: background-color 0.3s ease;
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-#project-gallery tbody tr:hover {
-  background-color: color-mix(in srgb, var(--primary-color, var(--fallback-primary-color)) 10%, #fff);
+.project-card figure {
+  margin: 0 0 var(--spacing-unit) 0;
+}
+
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 4px;
+}
+
+.project-card h3 {
+  margin: 0 0 calc(var(--spacing-unit) * 0.5) 0;
+  font-size: 1.25rem;
+}
+
+.project-card p {
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: var(--spacing-unit);
+}
+
+.project-card .technologies {
+  margin-bottom: calc(var(--spacing-unit) * 0.5);
+  font-size: 0.9rem;
+}
+
+.project-card .status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.project-card video {
+  width: 100%;
+  max-width: 250px;
+  margin: calc(var(--spacing-unit) * 0.5) 0;
 }
 
 /* Contact Page */
@@ -327,6 +415,10 @@ button:hover, .project-wrapper article:hover {
     .hero-section {
         flex-direction: column;
     }
+    
+    #project-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 768px) {
@@ -362,43 +454,9 @@ button:hover, .project-wrapper article:hover {
       display: block;
   }
 
-  /* Portfolio Table to Cards */
-  #project-gallery table, 
-  #project-gallery thead, 
-  #project-gallery tbody, 
-  #project-gallery th, 
-  #project-gallery td, 
-  #project-gallery tr {
-      display: block;
-  }
-
-  #project-gallery thead tr {
-      position: absolute;
-      top: -9999px;
-      left: -9999px;
-  }
-
-  #project-gallery tr {
-      border: 1px solid #ccc;
-      margin-bottom: 1rem;
-  }
-
-  #project-gallery td {
-      border: none;
-      border-bottom: 1px solid #eee;
-      position: relative;
-      padding-left: 50%;
-  }
-
-  #project-gallery td:before {
-      position: absolute;
-      top: 6px;
-      left: 6px;
-      width: 45%;
-      padding-right: 10px;
-      white-space: nowrap;
-      content: attr(data-label);
-      font-weight: bold;
+  /* Portfolio Grid Responsive */
+  #project-gallery {
+      grid-template-columns: 1fr;
   }
 }
 
